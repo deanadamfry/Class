@@ -15,7 +15,33 @@ void exitScreen();
 
 // =======================================================
 // Classes
+class Character
+{
+public:
+	string m_Name = "Stranger";
+	float m_HP = 0;
+	float m_SPD = 10;
+	bool m_IsAlive = true;
 
+	void checkIsAlive() { if (m_HP < 1) m_IsAlive = false; }
+	void displayStats();
+};
+
+void Character::displayStats()
+{
+	if (m_IsAlive == true)
+	{
+		cout << "\n Character " << m_Name << " HP: " << m_HP;
+		cout << "\n Status: Alive";
+		cout << "\n";
+	}
+	else
+	{
+		cout << "\n Character " << m_Name << " HP: " << m_HP;
+		cout << "\n Status: Dead";
+		cout << "\n";
+	}
+}
 
 // =======================================================
 // Global Variables
@@ -56,7 +82,7 @@ void mainMenu()
 	cin >> playerChoice; // User Input
 
 	// Input Validation
-	while (playerChoice < 1 || playerChoice > 4)
+	while (playerChoice < 1 || playerChoice > 5)
 	{
 		if (cin.fail()) // Non-Number entered
 		{
@@ -76,12 +102,29 @@ void mainMenu()
 	{
 		// Clear Screen
 		system("cls");
+
+		// Character Objects
+		Character player1, player2;
+
+		// Set HP values
+		player1.m_HP = 100;
+		player2.m_HP = 0;
+
+		// Inside Method
+		player1.checkIsAlive();
+		player2.checkIsAlive();
+
+		// Outside Method
+		player1.displayStats();
+		player2.displayStats();
 	}
 	break;
 	case 2:
 	{
 		// Clear Screen
 		system("cls");
+
+
 	}
 	break;
 	case 3:
