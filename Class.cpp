@@ -23,6 +23,20 @@ public:
 	float m_SPD = 10;
 	bool m_IsAlive = true;
 
+	// Default Constructor
+	Character() {/**Leave blank**/}
+	
+	// Parameters Constructor
+	Character(string nameSent, float hpSent)
+	{
+		m_Name = nameSent;
+		m_HP = hpSent;
+		cout << "\n Parameters Character Constructor";
+		cout << "\n A new Character named " << m_Name << " has spawned.";
+		cout << "\n HP: " << m_HP;
+		cout << "\n";
+	}
+
 	void checkIsAlive() { if (m_HP < 1) m_IsAlive = false; }
 	void displayStats();
 };
@@ -124,7 +138,10 @@ void mainMenu()
 		// Clear Screen
 		system("cls");
 
-
+		Character player1("Steve", 100);
+		Character player2("Dave", 0);
+		Character player3("John", 75);
+		Character player4("Bob", 25);
 	}
 	break;
 	case 3:
