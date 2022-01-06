@@ -24,7 +24,7 @@ public:
 	bool m_IsAlive = true;
 
 	// Default Constructor
-	Character() {/**Leave blank**/}
+	Character() { cout << "\n Character spawned"; }
 	
 	// Parameters Constructor
 	Character(string nameSent, float hpSent)
@@ -56,6 +56,54 @@ void Character::displayStats()
 		cout << "\n";
 	}
 }
+
+// Derived Class (child)
+class PC : public Character
+{
+public:
+	string m_PotionCarrying = "Health Potion";
+	int m_MP = 100; // Mana Points
+
+	// Default PC Constructor
+	PC() { cout << "\n Default PC spawned"; }
+
+	// Parameters PC Constructor
+	PC(string nameSent, float hpSent, string potionSent, int mpSent)
+	{
+		m_Name = nameSent;
+		m_HP = hpSent;
+		m_PotionCarrying = potionSent;
+		m_MP = mpSent;
+		cout << "\n PC created";
+		cout << "\n Name: " << m_Name;
+		cout << "\n HP: " << m_HP;
+		cout << "\n MP: " << m_MP;
+		cout << "\n Inventory: " << m_PotionCarrying;
+		cout << "\n";
+	}
+};
+
+// Derived Class (child)
+class NPC : public Character
+{
+public:
+	string m_Faction = "Neutral";
+	string m_Message = "We are innocent bystanders.";
+
+	// Default NPC Constructor
+	NPC() { cout << "\n Default NPC spawned"; }
+	
+	// Parameter NPC Constructor
+	NPC(string factionSent, string messageSent)
+	{
+		m_Faction = factionSent;
+		m_Message = messageSent;
+		cout << "\n NPC created";
+		cout << "\n Faction: " << m_Faction;
+		cout << "\n Message: " << m_Message;
+		cout << "\n";
+	}
+};
 
 // =======================================================
 // Global Variables
@@ -138,16 +186,23 @@ void mainMenu()
 		// Clear Screen
 		system("cls");
 
-		Character player1("Steve", 100);
-		Character player2("Dave", 0);
-		Character player3("John", 75);
-		Character player4("Bob", 25);
+		// Character Objects
+		Character player1("Steve", 100)
+		,         player2("Dave", 0)
+		,         player3("John", 75)
+		,         player4("Bob", 25);
 	}
 	break;
 	case 3:
 	{
 		// Clear Screen
 		system("cls");
+
+		// NPC Object
+		NPC npc1("Horde", "For The Horde!");
+
+		// PC Object
+		PC player1("Dean", 100, "Mana Potion", 100);
 	}
 	break;
 	case 4:
