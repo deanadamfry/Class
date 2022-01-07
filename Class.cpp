@@ -18,10 +18,10 @@ void exitScreen();
 class Character
 {
 public:
-	string m_Name = "Stranger";
-	float m_HP = 0;
-	float m_SPD = 10;
-	bool m_IsAlive = true;
+	string m_Name = "Stranger";  // Character Name
+	float m_HP = 0;              // Health Points
+	float m_SPD = 10;            // Speed
+	bool m_IsAlive = true;       // Character Alive?
 
 	// Default Constructor
 	Character() { cout << "\n Character spawned"; }
@@ -61,8 +61,8 @@ void Character::displayStats()
 class PC : public Character
 {
 public:
-	string m_PotionCarrying = "Health Potion";
-	int m_MP = 100; // Mana Points
+	string m_PotionCarrying = "Health Potion"; // Type of Potion
+	int m_MP = 100;                            // Mana Points
 
 	// Default PC Constructor
 	PC() { cout << "\n Default PC spawned"; }
